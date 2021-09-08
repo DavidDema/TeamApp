@@ -2,7 +2,6 @@ from ics import Calendar
 import requests
 import datetime
 
-from team import Team
 from event import Event
 from event import Game
 import par

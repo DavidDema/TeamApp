@@ -1,7 +1,5 @@
 import par
 from event import Event
-from event import Game
-from event import Training
 from event import g
 
 class Club:

@@ -1,25 +1,15 @@
 from __future__ import print_function
-import datetime
-import os
-import os.path
 from time import sleep
 
 import par
-
-#Slack import
-#from slack_bolt import App
-#from slack_bolt.adapter.socket_mode import SocketModeHandler
-
-#Team import
-import ics_grabber
 from team import Club
 
 #Event import
 from event import Event
 from event import Game
+from event import Training
 from event import g
 from event import s
-#from event import Training
 
 if __name__ == "__main__":
     print("Starting...")
