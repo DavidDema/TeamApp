@@ -1,75 +1,36 @@
 from __future__ import print_function
 from time import sleep
-import asyncio
 import time
+import threading
 
 import par
-from team import Club
 
 #Event import
-from event import Event
-from event import g
-from event import s
+from event import t
 
-
-# async def Sheet():
-#     while (1):
-#         for e in events16:
-#             e.update()
-#         await asyncio.sleep(5)
-#
-#
-# async def Slack():
-#     while (1):
-#         s.start_app()
-#         await asyncio.sleep(5)
-#
-# async def main():
-#     print(f"started at {time.strftime('%X')}")
-#
-#     await Slack()
-#     await Sheet()
-#
-#     print(f"finished at {time.strftime('%X')}")
 
 
 if __name__ == "__main__":
-    print("Bot is waking up...")
 
-    events16 = g.read_sheet(par.SPIELE16_RANGE)
-    events07 = g.read_sheet(par.SPIELE07_RANGE)
-    trainings = g.read_sheet(par.TRAININGS_RANGE)
+    if True:
+        x = threading.Thread(target=t.Sheet_Task, args=())
+        y = threading.Thread(target=t.Event_Task, args=())
+        z = threading.Thread(target=t.Slack_Task, args=())
 
-    # for e in events16:
-    #     print(e)
-    #     s.post_event(e)
+        #y.start()
+        x.start()
+        y.start()
+        z.start()
 
-    #asyncio.run(main())
-
-    while (1):
-        for e in events16:
-            e.update()
-        for e in events07:
-            e.update()
-        for e in trainings:
-            e.update()
-        sleep(5)
-
-    #TODO:
-    #create Tasks: Slack Listener, App manager, Sheet manager
-    #listen to Reactions and count participants for event
-
-    #create ICS to Sheet converter, with "ü"
-    #
-
-    #install on Google Cloud
+        x.join()
+        y.join()
+        z.join()
 
 
-    # for e in events07:
-    #     print(e)
-    #     s.post_event(e)
-    # for e in trainings:
-    #     print(e)
-    #     s.post_event(e)
-
-
+#TODO:
+# -> Fix problem with Google Api
+# -> Reaction removed doesnt work
+# -> Implement error handling
+# -> Implement preview of upcoming event
+# -> Implement classes for Game and Training
+# -> Classes Game,Training,Team,Club,User,Player

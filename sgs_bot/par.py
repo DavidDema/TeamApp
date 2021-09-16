@@ -19,6 +19,8 @@ SPIELE07_HEADER = "spiele07!A1:U1"
 TRAININGS_RANGE = "trainings!A2:U"
 TRAININGS_HEADER = "trainings!A1:U1"
 
+RANGE_LIST = [SPIELE07_RANGE,SPIELE16_RANGE,TRAININGS_RANGE]
+
 g_maps_url = "https://www.google.com/maps/search/?api=1&query="
 
 #SLACK
@@ -48,4 +50,5 @@ def get_header(range):
     elif range == TRAININGS_RANGE:
         return TRAININGS_HEADER
     else:
+        print("No header found")
         return "NOHEADERFOUND"
